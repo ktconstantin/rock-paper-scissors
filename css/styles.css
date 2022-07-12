@@ -38,9 +38,6 @@
   transition-duration: 0.33s;
 }
 
-.btn-container button i {
-}
-
 .scorecard {
   display: flex;
   flex-direction: column;
@@ -50,12 +47,12 @@
 
 .name {
   font-family: monospace;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 #player-score,
 #computer-score {
-  font-size: 32px;
+  font-size: 42px;
   font-family: monospace;
   padding: 12px;
 }
@@ -65,7 +62,7 @@
 }
 
 #reset {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 #reset:hover {
@@ -77,3 +74,6 @@ i:hover {
   color: pink;
 }
 
+.computer-move {
+  font-size: 36px;
+}
