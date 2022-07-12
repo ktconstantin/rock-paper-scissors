@@ -73,3 +73,8 @@
   border-color: yellow;
   transition-duration: 0.99s;
 }
+
+i:hover {
+  color: pink;
+}
+

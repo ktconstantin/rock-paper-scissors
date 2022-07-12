@@ -40,6 +40,10 @@
       <button id="reset">RESET</button>
     </div>
 
+    <div class="computer-move">
+      <div class="text"></div>
+    </div>
+
     <div class="results"></div>
   </body>
 
@@ -49,11 +53,6 @@
     const results = document.querySelector('.results');
 
     function playGame(e) {
-      
-      function computerPlay() {
-        const CHOICES = ['rock', 'paper', 'scissors'];
-        return CHOICES[Math.floor(Math.random() * 3)];
-      }
 
       let computerSelection = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
       let playerSelection = e.target.parentNode.id;
@@ -68,6 +67,9 @@
           } else {
             result = 'loss';
       }
+
+      const computerMove = document.querySelector('.text');
+      computerMove.textContent = `Computer picked: ${computerSelection}`;
 
       const resultMessage = document.createElement('div');
       resultMessage.classList.add('result');
@@ -92,7 +94,10 @@
     function resetScoreboard() {
       playerScore.textContent = '0';
       computerScore.textContent = '0';
-      results.removeChild(results.firstChild);
+      if (results.firstChild) {
+        results.removeChild(results.firstChild);
+      }
+      
     }
 
     const rockBtn = document.getElementById('rock');
