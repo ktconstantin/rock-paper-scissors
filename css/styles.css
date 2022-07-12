@@ -1,0 +1,75 @@
+* {
+  background-color: black;
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#scoreboard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container button {
+  margin: 12px;
+  padding: 8px;
+  background-color: black;
+  border-radius: 8px;
+  border: 2px solid;
+}
+
+#rock:hover {
+  border-color: red;
+  transition-duration: 0.33s;
+}
+
+#paper:hover {
+  border-color: green;
+  transition-duration: 0.33s;
+}
+
+#scissors:hover {
+  border-color: blue;
+  transition-duration: 0.33s;
+}
+
+.btn-container button i {
+  font-size: 42px;
+}
+
+.scorecard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-family: monospace;
+  font-size: 24px;
+}
+
+#player-score,
+#computer-score {
+  font-size: 32px;
+  font-family: monospace;
+  padding: 12px;
+}
+
+.results {
+  margin: 12px;
+}
+
+#reset {
+  font-size: 18px;
+}
+
+#reset:hover {
+  border-color: yellow;
+  transition-duration: 0.99s;
+}

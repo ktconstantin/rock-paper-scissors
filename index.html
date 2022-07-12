@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>RPS Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/9cbc8ceb6c.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <h1>WELCOME TO 
+      <span class="rock-text">ROCK</span> 
+      <span class="paper-text">PAPER</span> 
+      <span class="scissors-text">SCISSORS</span></h1>
+
+    <div class="btn-container">
+      <button id="rock">
+        <i class="fa-solid fa-hand-back-fist"></i>
+      </button>
+      <button id="paper">
+        <i class="fa-solid fa-hand"></i>
+      </button>
+      <button id="scissors">
+        <i class="fa-solid fa-hand-peace"></i>
+      </button>
+    </div>
+    
+    <div id="scoreboard">
+      <div class="scorecard">
+        <div id="player-score">0</div>
+        <div class="name">YOU</div>
+      </div>
+      <div class="scorecard">
+        <div id="computer-score">0</div>
+        <div class="name">COMPUTER</div>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button id="reset">RESET</button>
+    </div>
+
+    <div class="results"></div>
+  </body>
+
+  <script>
+    const playerScore = document.getElementById('player-score');
+    const computerScore = document.getElementById('computer-score');
+    const results = document.querySelector('.results');
+
+    function playGame(e) {
+      
+      function computerPlay() {
+        const CHOICES = ['rock', 'paper', 'scissors'];
+        return CHOICES[Math.floor(Math.random() * 3)];
+      }
+
+      let computerSelection = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+      let playerSelection = e.target.parentNode.id;
+      let result = '';
+
+      if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+          (playerSelection === 'paper' && computerSelection === 'rock') ||
+          (playerSelection === 'scissors' && computerSelection === 'paper')) {
+            result = 'win';
+          } else if (playerSelection === computerSelection) {
+            result = 'tie';
+          } else {
+            result = 'loss';
+      }
+
+      const resultMessage = document.createElement('div');
+      resultMessage.classList.add('result');
+
+      if (result === 'win') {
+        resultMessage.textContent = "You win, genius!";
+        playerScore.textContent = String(Number(playerScore.textContent) + 1);
+      } else if (result === 'tie') {
+        resultMessage.textContent = "It's a tie, whatever";
+      } else if (result === 'loss') {
+        resultMessage.textContent = "You lose, stupid!";
+        computerScore.textContent = String(Number(computerScore.textContent) + 1);
+      }
+
+      const child = results.firstChild;
+      if (child) {
+        results.removeChild(child);
+      }
+      results.appendChild(resultMessage);
+    }
+
+    function resetScoreboard() {
+      playerScore.textContent = '0';
+      computerScore.textContent = '0';
+      results.removeChild(results.firstChild);
+    }
+
+    const rockBtn = document.getElementById('rock');
+    const paperBtn = document.getElementById('paper');
+    const scissorsBtn = document.getElementById('scissors');
+    const resetBtn = document.getElementById('reset');
+
+    rockBtn.addEventListener('click', playGame);
+    paperBtn.addEventListener('click', playGame);
+    scissorsBtn.addEventListener('click', playGame);
+    resetBtn.addEventListener('click', resetScoreboard);
+
+    
+
+  </script>
+</html>
